@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block nav %}
+    {% if user_object == user %}
+    <li class="nav-link">
+        <a class="nav-link text-light d-inline" href="{% url 'accounts:update_profile' %}">Редактировать</a>
+    </li>
+    <li class="nav-link">
+        <a class="nav-link text-light d-inline" href="{% url 'accounts:update_user_password' %}">Сменить пароль</a>
+    </li>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="card flex-row my-4">
+        {% if user_object.profile.avatar %}
+            <img src="{{ user_object.profile.avatar.url }}" class="card-img-top" style="width: 220px" alt="...">
+        {% else %}
+            <img src="https://klike.net/uploads/posts/2019-03/1551511862_48.jpg" class="card-img-top" style="width: 180px" alt="...">
+        {% endif %}
+        <div class="card-body ms-5">
+        <h5 class="card-title mb-3">Имя пользователя: <span style="font-style: italic; font-size: 30px">{{ user_object.username }}</span></h5>
+        {% if user_object.profile.github is not null %}
+            <h6 class="card-subtitle mb-3 text-muted">Ссылка на github: {{ user_object.profile.github }}</h6>
+        {% endif %}
+        {% if user_object.profile.about is not null %}
+            <h6 class="card-subtitle mb-3 text-muted">О себе: {{ user_object.profile.about }}</h6>
+        {% endif %}
+        {% if user_object.first_name %}
+            <h6 class="card-subtitle mb-3 text-muted">Имя: {{ user_object.first_name }}</h6>
+        {% endif %}
+        {% if user_object.last_name %}
+            <h6 class="card-subtitle mb-3 text-muted">Фамилия: {{ user_object.last_name }}</h6>
+        {% endif %}
+        <h6 class="card-subtitle mb-3 text-muted">Почта: {{ user_object.email }}</h6>
+        </div>
+    </div>
+    {% for review in reviews %}
+        {% if review.author.username == user_object.username or perms.webapp.view_review %}
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    {{ review.author.username }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><b>Описание: </b><br>{{ review.description }}</p>
+                    <p class="card-text"><b>Оценка: </b><br>{{ review.grade }}</p>
+                    <p class="card-text"><b>Email:</b><br>{{ review.author.email|default:'Нет' }}</p>
+                    {% if perms.webapp.change_review and perms.webapp.delete_review or review.author.username == user_object.username %}
+                        <p><a href="{% url 'webapp:update_review' review.pk %}">Редактировать отзыв</a></p>
+                        <p><a href="{% url 'webapp:delete_product' review.pk %}">Удалить отзыв</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    {% empty %}
+
+    {% endfor %}
+
+{% endblock %}
