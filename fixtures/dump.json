@@ -1,0 +1,232 @@
+Tracking file by folder pattern:  migrations
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "title": "Samsung",
+    "category": "phone",
+    "description": "Galaxy Ultra",
+    "image": "images/tele.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "title": "Mac",
+    "category": "notebook",
+    "description": "MacBook Pro",
+    "image": "images/mac.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "title": "LG",
+    "category": "tv",
+    "description": "55'' OLED",
+    "image": "images/tv.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "title": "Apple",
+    "category": "tablet",
+    "description": "17''",
+    "image": "images/planshet.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "title": "Loshad",
+    "category": "other",
+    "description": "Bol'shaya belaya v tumane",
+    "image": ""
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "title": "Moderov",
+    "category": "other",
+    "description": "aSDaDS",
+    "image": "images/4.jpeg"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "product": 2,
+    "description": "asdadada",
+    "grade": 3,
+    "moderated": false,
+    "created_at": "2023-01-14T07:20:18.088Z",
+    "updated_at": "2023-01-14T07:20:18.088Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 2,
+  "fields": {
+    "author": 3,
+    "product": 5,
+    "description": "loshad' kak loshad'",
+    "grade": 1,
+    "moderated": false,
+    "created_at": "2023-01-14T07:21:32.664Z",
+    "updated_at": "2023-01-14T07:21:32.664Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 3,
+  "fields": {
+    "author": 4,
+    "product": 1,
+    "description": "asdadad",
+    "grade": 3,
+    "moderated": false,
+    "created_at": "2023-01-14T07:23:18.909Z",
+    "updated_at": "2023-01-14T07:23:18.909Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 4,
+  "fields": {
+    "author": 4,
+    "product": 3,
+    "description": "sNOrm",
+    "grade": 3,
+    "moderated": true,
+    "created_at": "2023-01-14T07:55:59.466Z",
+    "updated_at": "2023-01-14T07:55:59.466Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 5,
+  "fields": {
+    "author": 4,
+    "product": 4,
+    "description": "Poidet",
+    "grade": 4,
+    "moderated": true,
+    "created_at": "2023-01-14T07:56:23.792Z",
+    "updated_at": "2023-01-14T07:56:23.792Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 6,
+  "fields": {
+    "author": 4,
+    "product": 1,
+    "description": "Nice",
+    "grade": 5,
+    "moderated": true,
+    "created_at": "2023-01-14T07:56:44.636Z",
+    "updated_at": "2023-01-14T07:56:44.636Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 7,
+  "fields": {
+    "author": 5,
+    "product": 5,
+    "description": "Loshad kak loshad",
+    "grade": 1,
+    "moderated": true,
+    "created_at": "2023-01-14T08:00:02.372Z",
+    "updated_at": "2023-01-14T08:00:02.372Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 8,
+  "fields": {
+    "author": 5,
+    "product": 3,
+    "description": "otlichno",
+    "grade": 5,
+    "moderated": true,
+    "created_at": "2023-01-14T08:00:16.741Z",
+    "updated_at": "2023-01-14T08:00:16.741Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 9,
+  "fields": {
+    "author": 5,
+    "product": 4,
+    "description": "otlichno",
+    "grade": 5,
+    "moderated": true,
+    "created_at": "2023-01-14T08:00:34.169Z",
+    "updated_at": "2023-01-14T08:00:34.169Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 10,
+  "fields": {
+    "author": 6,
+    "product": 1,
+    "description": "asdad",
+    "grade": 2,
+    "moderated": true,
+    "created_at": "2023-01-14T08:01:24.175Z",
+    "updated_at": "2023-01-14T08:01:24.175Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 11,
+  "fields": {
+    "author": 6,
+    "product": 2,
+    "description": "asdada",
+    "grade": 3,
+    "moderated": true,
+    "created_at": "2023-01-14T08:01:38.544Z",
+    "updated_at": "2023-01-14T08:01:38.544Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 12,
+  "fields": {
+    "author": 7,
+    "product": 2,
+    "description": "121231",
+    "grade": 4,
+    "moderated": true,
+    "created_at": "2023-01-14T08:02:21.223Z",
+    "updated_at": "2023-01-14T08:02:21.223Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 13,
+  "fields": {
+    "author": 7,
+    "product": 5,
+    "description": "asdad",
+    "grade": 4,
+    "moderated": true,
+    "created_at": "2023-01-14T08:02:36.275Z",
+    "updated_at": "2023-01-14T08:02:36.275Z"
+  }
+}
+]
