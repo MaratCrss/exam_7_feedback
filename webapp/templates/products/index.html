@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+    {% if request.user.is_authenticated and perms.webapp.add_product %}
+        <li class="nav-item">
+            <a href="{% url 'webapp:create_product' %}" class="nav-link text-light">Добавить продукт</a>
+        </li>
+        {% if perms.webapp.can_view_moderated_to_the_review %}
+            <li class="nav-item">
+                <a href="{% url 'webapp:review_list' %}" class="nav-link text-light">Все отзывы</a>
+            </li>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <h1 class="text-center my-4">Список Продуктов</h1>
+    <div class="row ms-xl-5">
+        {% for product in products %}
+                <div class="col-4 mb-3">
+                    <div class="card h-100" style="width: 18rem;">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card-img-top" style="width: 150px" alt="...">
+                        {% else %}
+                            <img src="{% static 'static_img.jpg' %}" class="card-img-top" style="width: 290px" alt="...">
+                        {% endif %}
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                <a href="{% url 'webapp:product_view' product.pk %}" class="link-success">{{ product.title }}</a>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Категория: </b>
+                                <a href="">
+                                    {{ product.get_category_display }}
+                                </a>
+                            </h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Описание: </b> {{ product.description }}</h6>
+                            <p><b>Средняя оценка: {{ product.get_average }}</b></p>
+                        </div>
+                    </div>
+                </div>
+        {% empty %}
+
+        {% endfor %}
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}

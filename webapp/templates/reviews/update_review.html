@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="my-3">Редактировать Отзыв</h1>
+    <form action="" class="form-control" method="post">
+        {% csrf_token %}
+        <form action="" method="post">
+            <input type="text" name="grade" placeholder="Оценка" value="{{ review.grade }}"><br>
+            <textarea name="description"cols="30" rows="10">{{ review.description }}</textarea><br>
+            <button type="submit">Редактировать</button>
+        </form>
+    </form>
+    <a href="{% url 'webapp:index' %}" class="btn btn-primary">На главную</a>
+{% endblock %}

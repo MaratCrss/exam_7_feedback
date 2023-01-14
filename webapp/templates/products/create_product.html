@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="my-3">Создать новый продукт</h1>
+    <form action="" class="form-control" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include 'partial/form.html' with button_text='Создать' button_class='btn btn-primary' %}
+    </form>
+    <a href="{% url 'webapp:index' %}" class="btn btn-primary">На главную</a>
+{% endblock %}

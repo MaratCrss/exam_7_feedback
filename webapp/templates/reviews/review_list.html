@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for review in reviews %}
+    {% if review.moderated or perms.webapp.view_review %}
+        <div class="card mt-4">
+            <div class="card-header">
+                {{ review.author.username }}
+            </div>
+            <div class="card-body">
+                <p class="card-text"><b>Описание: </b><br>{{ review.description }}</p>
+                <p class="card-text"><b>Оценка: </b><br>{{ review.grade }}</p>
+                <p class="card-text"><b>Email:</b><br>{{ review.author.email|default:'Нет' }}</p>
+                <p><a href="{% url 'webapp:update_review_moderator' review.pk %}">Редактировать отзыв</a></p>
+                <p><a href="{% url 'webapp:delete_product' review.pk %}">Удалить отзыв</a></p>
+            </div>
+        </div>
+    {% endif %}
+{% empty %}
+
+{% endfor %}
+{% endblock %}

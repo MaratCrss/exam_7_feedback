@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="grade" placeholder="Оценка" value="{{ review.grade }}"><br>
+        <textarea name="description"cols="30" rows="10">value="{{ review.description }}"</textarea><br>
+        <input type="checkbox" name="moderated" {% if review.moderated %} checked {% endif %} value="{{ review.moderated }}">
+        <button type="submit">Редактировать</button>
+    </form>
+</body>
+</html>
